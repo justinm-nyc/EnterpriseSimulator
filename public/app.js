@@ -7,6 +7,7 @@ var app = new Vue({
     },
     methods: {
       fetchResults: function() {
+        this.artilleryResults = 'Loading ...'
         axios.get('/results')
         .then(response => {
           this.artilleryResults = response.data

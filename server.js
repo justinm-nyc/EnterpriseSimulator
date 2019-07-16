@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path')
 var app = express();
 const { exec } = require('child_process');
+const fs = require('fs') 
 // ------------------------------------------------------
 // Define Routes: Static
 // ------------------------------------------------------
@@ -22,10 +23,13 @@ app.get('/results', function (req, res) {
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
     
-
-    res.send(stdout + '\n' + stderr)
+    fs.readFile('output.txt', 'utf-8', (err, data) => { 
+      console.log("reading file")
+      if (err) throw err; 
+      console.log(data);
+      res.send(data) 
+    }) 
   });
-
 })
 // ------------------------------------------------------
 // listen for requests

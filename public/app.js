@@ -8,13 +8,16 @@ var app = new Vue({
       isHealthCare: false,
       isSurvey: false,
       isRamp: false,
-      isOscilating: false
+      isOscilating: false,
+      loading: false
     },
     methods: {
       fetchResults: function() {
+        this.loading = true
         this.artilleryResults = 'Loading ...'
         axios.get('/results')
         .then(response => {
+          this.loading = false
           this.artilleryResults = response.data
           console.log("artillery results: \n" + this.artilleryResults)
       }).catch(function(error){

@@ -5,16 +5,34 @@ var app = new Vue({
       chosenWorkload: '',
       chosenWorkloadProfile: '',
       workloadSelected: false,
+      workloadPayloadSelected: false,
       isHealthCare: false,
       isSurvey: false,
       isRamp: false,
       isOscilating: false,
-      loading: false
+      loading: false,
+      minVU: null,
+      maxVU: null
+    },
+    computed: {
+      isMaxMoreThanMin: function(){
+        if(this.maxVU != null && this.minVU != null && Number(this.maxVU) > Number(this.minVU)){
+          return true
+        }else{
+          return false
+        }
+      },
+      isMinMoreThanZero: function(){
+        if(this.minVU > 0){
+          return true
+        }else{
+          return false
+        }
+      }
     },
     methods: {
       fetchResults: function() {
         this.loading = true
-        this.artilleryResults = 'Loading ...'
         axios.get('/results')
         .then(response => {
           this.loading = false
@@ -39,6 +57,7 @@ var app = new Vue({
       },
       setWorkloadProfile: function(workloadProfile){
         this.chosenWorkloadProfile = workloadProfile
+        this.workloadPayloadSelected = true
         console.log(this.chosenWorkloadProfile + " chosen")
 
         if(this.chosenWorkloadProfile == 'ramp'){

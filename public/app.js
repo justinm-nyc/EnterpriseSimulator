@@ -9,7 +9,7 @@ var app = new Vue({
       isHealthCare: false,
       isSurvey: false,
       isRamp: false,
-      isOscilating: false,
+      isburst: false,
       loading: false,
       minVU: null,
       maxVU: null
@@ -62,10 +62,10 @@ var app = new Vue({
 
         if(this.chosenWorkloadProfile == 'ramp'){
           this.isRamp = true
-          this.isOscilating = false
-        }else if(this.chosenWorkloadProfile == 'oscilating'){
+          this.isburst = false
+        }else if(this.chosenWorkloadProfile == 'burst'){
           this.isRamp = false
-          this.isOscilating = true          
+          this.isburst = true          
         }
       }
     },

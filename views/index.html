@@ -10,6 +10,8 @@
     
     <!-- Local CSS-->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/progress.css">
 
     <!-- VueJS development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,13 +23,64 @@
   <body>
     <div id="app">
       <div class="container">
-        {{ message }} 
-        <button v-on:click="fetchResults()">
-          Go
-        </button>
-        <div class="artilleryResults">
-          {{ artilleryResults }} 
-        </div>
+        <div class="workload-div row mb-2">
+            <div class="col-md-12"><h1> Choose your workload</h1></div>
+              <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static hcare" v-bind:class="{ hcareSelected: isHealthCare }" v-on:click="setWorkload('healthCare')">
+                    <h3 class="mb-0">Health Care</h3>
+                    <img class="center" src="/images/healthcare.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
+                  </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static survey" v-bind:class="{ surveySelected: isSurvey }" v-on:click="setWorkload('survey')">
+                  <h3 class="mb-0">Survey</h3>
+                  <img class="center" src="/images/clipboard.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="workload-profile-div row mb-2"  v-bind:class="{ slideDown: workloadSelected }" v-if="chosenWorkload !=''">
+              <div class="col-md-12"><h1> Choose your workload profile</h1></div>
+              <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static ramp" v-bind:class="{ rampSelected: isRamp }" v-on:click="setWorkloadProfile('ramp')">
+                    <h3 class="mb-0">Ramp</h3>
+                    <img class="center" src="/images/ramp.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                  <div class="col p-4 d-flex flex-column position-static oscilating" v-bind:class="{ oscilatingSelected: isOscilating }" v-on:click="setWorkloadProfile('oscilating')">
+                    <h3 class="mb-0 center ">Oscilating</h3>
+                    <img class="center" src="/images/oscilating.svg" alt="oscilating icon made by Freepik" height="100px" width="160px">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <button v-on:click="fetchResults()">
+              Go
+            </button>
+            <div class="linear-progress-material">
+              <div class="bar bar1"></div>
+              <div class="bar bar2"></div>
+          </div>
+
+            </div>
+
+            <div class="artilleryResults">
+              {{ artilleryResults }} 
+            </div>
+
+            <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+            <div>Icons made by <a href="https://www.freepik.com/?__hstc=57440181.2569319b1882b652268b4637ef0b4008.1563302692982.1563302692982.1563302692982.1&__hssc=57440181.1.1563302692982&__hsfp=271989939" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
       </div>
     </div>
     </script>

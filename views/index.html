@@ -61,7 +61,7 @@
     <div class="container">
       <div class="workload-profile-div process-div row mb-2"  v-bind:class="{ slideDown: workloadSelected }" v-if="chosenWorkload !=''">
         <div class="col-md-12"><h1> Choose your workload profile</h1></div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative app-buttons">
             <div class="col p-4 d-flex flex-column position-static ramp" v-bind:class="{ rampSelected: isRamp }" v-on:click="setWorkloadProfile('ramp')">
               <h3 class="mb-0">Ramp</h3>
@@ -69,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative app-buttons">
             <div class="col p-4 d-flex flex-column position-static burst" v-bind:class="{ burstSelected: isburst }" v-on:click="setWorkloadProfile('burst')">
               <h3 class="mb-0 center ">Burst</h3>
@@ -77,6 +77,14 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative app-buttons">
+              <div class="col p-4 d-flex flex-column position-static static" v-bind:class="{ staticSelected: isRamp }" v-on:click="setWorkloadProfile('ramp')">
+                <h3 class="mb-0">Static</h3>
+                <img class="center" src="/images/ramp.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
+              </div>
+            </div>
+          </div>
       </div>
 
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !=''">

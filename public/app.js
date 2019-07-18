@@ -9,7 +9,8 @@ var app = new Vue({
       isHealthCare: false,
       isSurvey: false,
       isRamp: false,
-      isburst: false,
+      isStatic: false,
+      isBurst: false,
       loading: false,
       minVU: null,
       maxVU: null
@@ -33,6 +34,7 @@ var app = new Vue({
     methods: {
       fetchResults: function() {
         this.loading = true
+        this.artilleryResults = ''
         axios.get('/results')
         .then(response => {
           this.loading = false
@@ -62,10 +64,16 @@ var app = new Vue({
 
         if(this.chosenWorkloadProfile == 'ramp'){
           this.isRamp = true
-          this.isburst = false
+          this.isBurst = false
+          this.isStatic = false
         }else if(this.chosenWorkloadProfile == 'burst'){
           this.isRamp = false
-          this.isburst = true          
+          this.isBurst = true     
+          this.isStatic = false     
+        }else if(this.chosenWorkloadProfile == 'static'){
+          this.isRamp = false
+          this.isBurst = false   
+          this.isStatic = true       
         }
       }
     },

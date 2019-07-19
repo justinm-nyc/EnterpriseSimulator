@@ -94,7 +94,7 @@
               <div class="col-md-6">
                 <label for="inputMin" class="col-sm-10 col-form-label">Minimum Virtual Users</label>
                 <div class="col-sm-10 inputBox">
-                  <input type="number" class="form-control " id="inputMin" placeholder="Min" v-model="minVU">
+                  <input type="number" class="form-control" id="inputMin" placeholder="Min" v-model="minVU">
                 </div>
               </div>
               <div class="col-md-6">
@@ -122,27 +122,37 @@
         <form>
           <div class="col-md-12">
             <div class="form-group row">
-              <label for="inputMin" class="col-sm-10 col-form-label">Virtual Users Amount</label>
-              <div class="col-sm-12 inputBox">
-                <input type="number" class="form-control " id="inputMin" placeholder="Min" v-model="minVU">
+              <div class="col-md-6">
+                <label for="inputMin" class="col-sm-10 col-form-label">Virtual Users Amount</label>
+                <div class="col-sm-10 inputBox">
+                  <input type="number" class="form-control" id="inputMin" placeholder="Amount of Virtual Users" v-model="minVU">
+                </div>
               </div>
+              <div class="col-md-6">
+                  <label for="inputMin" class="col-sm-10 col-form-label">Duration (Seconds)</label>
+                  <div class="col-sm-10 inputBox">
+                    <input type="number" class="form-control" id="inputMin" placeholder="Duration in Seconds" v-model="duration">
+                  </div>
+                </div>
             </div>
           </div>
           <div class="col-md-12" v-bind:class="{ warningHidden: isMinMoreThanZero }">
-            <div class="alert alert-danger" role="alert">
-            Amount of virtual users cannot be less than one.</div>
+            <div class="alert alert-danger" role="alert">Amount of virtual users cannot be less than one.</div>
           </div>
+          <div class="col-md-12" v-bind:class="{ warningHidden: isDurationMoreThanFive }">
+              <div class="alert alert-danger" role="alert">Duration must be more than 5 seconds.</div>
+            </div>
         </form>
       </div>
 
     </div>
 
-    <div class="results-div row mb-2 justify-content-md-center" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && chosenWorkloadProfile == 'static' ">
+    <!-- Results for static workload profile -->
+    <div class="results-div row mb-2 justify-content-md-center" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && Number(duration) > 5 && duration != null && chosenWorkloadProfile == 'static' ">
         <button v-if="!loading" v-on:click="fetchResults()">
           Fetch Artillery Results
         </button>
         <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
-        <!-- <h6 class="col-md-12" v-if="loading"></h6> -->
         <div class="col-md-5 linear-progress-material" v-if="loading">
           <div class="bar bar1"></div>
           <div class="bar bar2"></div>
@@ -151,7 +161,8 @@
           {{ artilleryResults }} 
         </div>
       </div>
-    
+ 
+   <!-- Results  for burst and ramp Workload Payload  -->      
     <div class="results-div row mb-2 justify-content-md-center" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
       <button v-if="!loading" v-on:click="fetchResults()">
         Fetch Artillery Results
@@ -165,6 +176,7 @@
         {{ artilleryResults }} 
       </div>
     </div>
+
   </div>
 </div>
 </main>

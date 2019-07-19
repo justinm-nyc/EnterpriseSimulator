@@ -1,3 +1,4 @@
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -13,7 +14,9 @@ var app = new Vue({
       isBurst: false,
       loading: false,
       minVU: null,
-      maxVU: null
+      maxVU: null,
+      duration: null,
+    
     },
     computed: {
       isMaxMoreThanMin: function(){
@@ -29,20 +32,31 @@ var app = new Vue({
         }else{
           return false
         }
+      },
+      isDurationMoreThanFive: function(){
+        if(this.duration > 5){
+          return true
+        }else{
+          return false
+        }
       }
     },
     methods: {
       fetchResults: function() {
         this.loading = true
         this.artilleryResults = ''
-        axios.get('/results')
-        .then(response => {
-          this.loading = false
-          this.artilleryResults = response.data
-          console.log("artillery results: \n" + this.artilleryResults)
-      }).catch(function(error){
-          console.error("fetchResults failed", error.toString());
-      });
+
+        if(this.chosenWorkloadProfile){
+          axios.get('/results/static/' + this.minVU + '/' + this.duration)
+          .then(response => {
+              this.loading = false
+              this.artilleryResults = response.data
+              console.log("artillery results: \n" + this.artilleryResults)
+          }).catch(function(error){
+              console.error("fetchResults failed", error.toString());
+          });
+        }
+        
       },
       setWorkload: function(workload){
         this.chosenWorkload = workload

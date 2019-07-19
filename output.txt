@@ -1,51 +1,35 @@
-Started phase 0, duration: 10s @ 22:15:32(-0400) 2019-07-18
-Report @ 22:15:42(-0400) 2019-07-18
-Elapsed time: 10 seconds
-  Scenarios launched:  19
-  Scenarios completed: 19
-  Requests completed:  38
+Started phase 0, duration: 6s @ 23:05:12(-0400) 2019-07-18
+Report @ 23:05:19(-0400) 2019-07-18
+Elapsed time: 6 seconds
+  Scenarios launched:  12
+  Scenarios completed: 12
+  Requests completed:  24
   RPS sent: 4.03
   Request latency:
-    min: 10.4
-    max: 306.5
-    median: 51.7
-    p95: 130.9
-    p99: 306.5
+    min: 4.4
+    max: 353.3
+    median: 28.3
+    p95: 191
+    p99: 353.3
   Codes:
-    200: 19
-    302: 19
-
-Report @ 22:15:43(-0400) 2019-07-18
-Elapsed time: 10 seconds
-  Scenarios launched:  1
-  Scenarios completed: 1
-  Requests completed:  2
-  RPS sent: 4
-  Request latency:
-    min: 14.4
-    max: 64
-    median: 39.2
-    p95: 64
-    p99: 64
-  Codes:
-    200: 1
-    302: 1
+    200: 12
+    302: 12
 
 All virtual users finished
-Summary report @ 22:15:43(-0400) 2019-07-18
-  Scenarios launched:  20
-  Scenarios completed: 20
-  Requests completed:  40
-  RPS sent: 4.02
+Summary report @ 23:05:19(-0400) 2019-07-18
+  Scenarios launched:  12
+  Scenarios completed: 12
+  Requests completed:  24
+  RPS sent: 4.03
   Request latency:
-    min: 10.4
-    max: 306.5
-    median: 51.7
-    p95: 122.2
-    p99: 306.5
+    min: 4.4
+    max: 353.3
+    median: 28.3
+    p95: 191
+    p99: 353.3
   Scenario counts:
-    0: 20 (100%)
+    0: 12 (100%)
   Codes:
-    200: 20
-    302: 20
+    200: 12
+    302: 12
 

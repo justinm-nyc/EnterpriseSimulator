@@ -51,12 +51,18 @@ var app = new Vue({
           .then(response => {
               this.loading = false
               this.artilleryResults = response.data
+
+              if(this.artilleryResults.includes("All virtual users finished")){
+                var resultLen = this.artilleryResults.length
+                this.artilleryResults = this.artilleryResults.slice(this.artilleryResults.indexOf("All virtual users finished"), resultLen);
+              }
+
               console.log("artillery results: \n" + this.artilleryResults)
           }).catch(function(error){
               console.error("fetchResults failed", error.toString());
           });
         }
-        
+
       },
       setWorkload: function(workload){
         this.chosenWorkload = workload

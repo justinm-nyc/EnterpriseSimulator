@@ -149,24 +149,31 @@
 
     <!-- Results for static workload profile -->
     <div class="results-div row mb-2 justify-content-md-center" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && Number(duration) > 5 && duration != null && chosenWorkloadProfile == 'static' ">
-        <button v-if="!loading" v-on:click="fetchResults()">
-          Fetch Artillery Results
-        </button>
+        <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+            <p class="btnText">FETCH RESULTS</p>
+            <div class="btnTwo">
+              <p class="btnText2">GO!</p>
+            </div>
+         </div>
+  
         <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
         <div class="col-md-5 linear-progress-material" v-if="loading">
           <div class="bar bar1"></div>
           <div class="bar bar2"></div>
         </div>         
         <div class="col-md-12 artilleryResults">
-          {{ artilleryResults }} 
+          <h5 class="center"> {{ artilleryResults }} </h5>
         </div>
       </div>
  
    <!-- Results  for burst and ramp Workload Payload  -->      
     <div class="results-div row mb-2 justify-content-md-center" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
-      <button v-if="!loading" v-on:click="fetchResults()">
-        Fetch Artillery Results
-      </button>
+      <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+          <p class="btnText">FETCH RESULTS</p>
+          <div class="btnTwo">
+            <p class="btnText2">GO!</p>
+          </div>
+       </div>
       <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
       <div class="col-md-5 linear-progress-material" v-if="loading">
         <div class="bar bar1"></div>

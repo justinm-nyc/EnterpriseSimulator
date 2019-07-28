@@ -619,3 +619,466 @@ Elapsed time: 7 minutes, 0 seconds
     p95: NaN
     p99: NaN
 
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:03:45(-0400) 2019-07-27
+Elapsed time: 7 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:03:55(-0400) 2019-07-27
+Elapsed time: 7 minutes, 20 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:04:05(-0400) 2019-07-27
+Elapsed time: 7 minutes, 30 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:04:15(-0400) 2019-07-27
+Elapsed time: 7 minutes, 40 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:04:25(-0400) 2019-07-27
+Elapsed time: 7 minutes, 50 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:04:35(-0400) 2019-07-27
+Elapsed time: 8 minutes, 0 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:04:45(-0400) 2019-07-27
+Elapsed time: 8 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:04:55(-0400) 2019-07-27
+Elapsed time: 8 minutes, 20 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:05:05(-0400) 2019-07-27
+Elapsed time: 8 minutes, 30 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:05:15(-0400) 2019-07-27
+Elapsed time: 8 minutes, 40 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:05:25(-0400) 2019-07-27
+Elapsed time: 8 minutes, 50 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:05:35(-0400) 2019-07-27
+Elapsed time: 9 minutes, 0 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:05:45(-0400) 2019-07-27
+Elapsed time: 9 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:05:55(-0400) 2019-07-27
+Elapsed time: 9 minutes, 20 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:06:05(-0400) 2019-07-27
+Elapsed time: 9 minutes, 30 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:06:15(-0400) 2019-07-27
+Elapsed time: 9 minutes, 40 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:06:25(-0400) 2019-07-27
+Elapsed time: 9 minutes, 50 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:06:35(-0400) 2019-07-27
+Elapsed time: 10 minutes, 0 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:06:45(-0400) 2019-07-27
+Elapsed time: 10 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:06:55(-0400) 2019-07-27
+Elapsed time: 10 minutes, 20 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:07:05(-0400) 2019-07-27
+Elapsed time: 10 minutes, 30 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:07:15(-0400) 2019-07-27
+Elapsed time: 10 minutes, 40 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:07:25(-0400) 2019-07-27
+Elapsed time: 10 minutes, 50 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:07:35(-0400) 2019-07-27
+Elapsed time: 11 minutes, 0 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:07:45(-0400) 2019-07-27
+Elapsed time: 11 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:07:55(-0400) 2019-07-27
+Elapsed time: 11 minutes, 20 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:08:05(-0400) 2019-07-27
+Elapsed time: 11 minutes, 30 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:08:15(-0400) 2019-07-27
+Elapsed time: 11 minutes, 40 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:08:25(-0400) 2019-07-27
+Elapsed time: 11 minutes, 50 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+
+Report @ 21:08:35(-0400) 2019-07-27
+Elapsed time: 12 minutes, 0 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Report @ 21:08:45(-0400) 2019-07-27
+Elapsed time: 12 minutes, 10 seconds
+  Scenarios launched:  0
+  Scenarios completed: 0
+  Requests completed:  0
+  RPS sent: NaN
+  Request latency:
+    min: NaN
+    max: NaN
+    median: NaN
+    p95: NaN
+    p99: NaN
+
+Warning: High CPU usage warning (pids: 17366).
+See https://artillery.io/docs/faq/#high-cpu-warnings for details.
+

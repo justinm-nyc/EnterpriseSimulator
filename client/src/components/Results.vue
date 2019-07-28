@@ -25,10 +25,10 @@ export default {
     ]
   },
   methods: {
-    getStaticHealthCareMaxWorkers: function () {
+    getStaticHealthCareMaxWorkers: async function () {
       console.log('getStaticHealthCareMaxWorkers called')
       // 6 Insert Static Functions
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -38,7 +38,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -48,7 +48,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -58,7 +58,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -68,7 +68,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -78,7 +78,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -89,7 +89,7 @@ export default {
         })
 
       // 2 Update Static Functions
-      axios.get(config.updateStaticEndpoint)
+      await axios.get(config.updateStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -99,7 +99,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.updateStaticEndpoint)
+      await axios.get(config.updateStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -110,7 +110,7 @@ export default {
         })
 
       // 2 Read Static Functions
-      axios.get(config.readStaticEndpoint)
+      await axios.get(config.readStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -120,7 +120,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.readStaticEndpoint)
+      await axios.get(config.readStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -130,10 +130,10 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
     },
-    getStaticHealthCareMidWorkers: function () {
+    getStaticHealthCareMidWorkers: async function () {
       console.log('getStaticHealthCareMidWorkers called')
       // 3 Insert Static Functions
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -143,7 +143,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -153,7 +153,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -164,7 +164,7 @@ export default {
         })
 
       // 2 Update Static Functions
-      axios.get(config.updateStaticEndpoint)
+      await axios.get(config.updateStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -174,7 +174,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.updateStaticEndpoint)
+      await axios.get(config.updateStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -185,7 +185,7 @@ export default {
         })
 
       // 2 Read Static Functions
-      axios.get(config.readStaticEndpoint)
+      await axios.get(config.readStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -195,7 +195,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.readStaticEndpoint)
+      await axios.get(config.readStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -205,10 +205,10 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
     },
-    getStaticHealthCareLowWorkers: function () {
+    getStaticHealthCareLowWorkers: async function () {
       console.log('getStaticHealthCareLowWorkers called')
       // 3 Insert Static Functions
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -218,7 +218,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -228,7 +228,7 @@ export default {
           console.error('fetchResults failed', error.toString())
         })
 
-      axios.get(config.insertStaticEndpoint)
+      await axios.get(config.insertStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -239,7 +239,7 @@ export default {
         })
 
       // 1 Update Static Functions
-      axios.get(config.updateStaticEndpoint)
+      await axios.get(config.updateStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data
@@ -250,7 +250,7 @@ export default {
         })
 
       // 1 Read Static Functions
-      axios.get(config.readStaticEndpoint)
+      await axios.get(config.readStaticEndpoint)
         .then(response => {
           this.loading = false
           this.artilleryResults = response.data

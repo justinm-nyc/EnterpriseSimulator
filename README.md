@@ -3,8 +3,8 @@
 > A Vue.js project
 
 
-
-## Open the terminal in the root folder
+## Server Side
+### Open a terminal window in the root folder
 
 ``` bash
 # install dependencies
@@ -15,16 +15,17 @@ node server.js
 
 ```
 
-## Open the terminal in the client folder
+## Client Side
 
-## Build Setup
+### Open a different terminal window in the client folder
+
 
 ``` bash
 # install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run serve
 
 # build for production with minification
 npm run build

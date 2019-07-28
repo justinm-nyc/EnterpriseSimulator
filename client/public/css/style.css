@@ -116,24 +116,24 @@ body{
     color: white;
 }
 
-/* Survey Button */
-.survey {
+/* ecommerce Button */
+.ecommerce {
     --color: #19bc8b;
     --hover: #3eb0c2;
     transition: 0.25s;
 }
 
-.survey:hover, .survey:focus {
+.ecommerce:hover, .ecommerce:focus {
     border-color: var(--hover);
     color: #fff;
 }
 
-.survey:hover,
-.survey:focus {
+.ecommerce:hover,
+.ecommerce:focus {
     box-shadow: inset 0 0 0 7em var(--hover);
 }
 
-.surveySelected{
+.ecommerceSelected{
     background-color:  #3eb0c2;
     color: white;
 }

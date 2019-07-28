@@ -5,6 +5,9 @@ static.yml
 ramp.yml
 run-enterprise.yml
 output.txt
+todo.txt
+client/node_modules
+client/src/config/config.js
 
 # local env files
 .env.local

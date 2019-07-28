@@ -1,4 +1,5 @@
 <template>
+<main>
   <div id="app">
     <div class="gradient-overlay-half-dark-v3 bg-img-hero top-background-image title-div">
       <div class="col-md-12 center-block text-center">
@@ -13,27 +14,6 @@
       </div>
     </div>
     <div class="container">
-      <!--Chart Placement[2]-->
-      <!-- <div id="chartDiv"></div>  -->
-      <!-- <script>
-        var chartData = {
-          type: 'bar',  // Specify your chart type here.
-          title: {
-            text: 'My First Chart' // Adds a title to your chart
-          },
-          legend: {}, // Creates an interactive legend
-          series: [  // Insert your series data here.
-              { values: [35, 42, 67, 89]},
-              { values: [28, 40, 39, 36]}
-          ]
-        };
-        zingchart.render({ // Render Method[3]
-          id: 'chartDiv',
-          data: chartData,
-          height: 400,
-          width: 600
-        });
-      </script> -->
       <div class= "process-div row mb-2">
         <div class="col-md-12"><h1> Choose a workload</h1></div>
         <div class="col-md-6">
@@ -47,9 +27,9 @@
 
         <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading }">
-            <div class="col p-4 d-flex flex-column position-static survey" v-bind:class="{ surveySelected: isSurvey }" v-on:click="setWorkload('survey')">
-              <h3 class="mb-0">Survey</h3>
-              <img class="center" src="/images/clipboard.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
+            <div class="col p-4 d-flex flex-column position-static ecommerce" v-bind:class="{ ecommerceSelected: isEcommerce }" v-on:click="setWorkload('ecommerce')">
+              <h3 class="mb-0">E-commerce</h3>
+              <img class="center" src="/images/buy.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
             </div>
           </div>
         </div>
@@ -85,7 +65,7 @@
 
       <!-- Parameter Selection For Burst and Ramp Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile !='static' ">
-        <div class="col-md-12"><h1> Choose the amount of users</h1></div>
+        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
         <form>
           <div class="col-md-12">
             <div class="form-group row">
@@ -118,7 +98,7 @@
 
       <!-- Parameter Selection For Static Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile =='static' ">
-        <div class="col-md-12"><h1> Choose the amount of users</h1></div>
+        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
         <div class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
@@ -171,6 +151,7 @@
           <div class="bar bar2"></div>
         </div>
         <div class="col-md-12 artilleryResults">
+          <Results ref="resultsComponent"></Results>
           <h5 class="center"> {{ artilleryResults }} </h5>
         </div>
       </div>
@@ -189,21 +170,26 @@
         <div class="bar bar2"></div>
       </div>
       <div class="col-md-12 artilleryResults">
+        <Results ref="resultsComponent"></Results>
         {{ artilleryResults }}
       </div>
     </div>
   </div>
+  </main>
+
 </template>
 
 <script>
 
 import axios from 'axios'
 import VueSliderBar from './components/VueSliderBar.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'app',
   components: {
-    VueSliderBar
+    VueSliderBar,
+    Results
   },
   data () {
     return {
@@ -213,7 +199,7 @@ export default {
       workloadSelected: false,
       workloadPayloadSelected: false,
       isHealthCare: false,
-      isSurvey: false,
+      isEcommerce: false,
       isRamp: false,
       isStatic: false,
       isBurst: false,
@@ -252,22 +238,31 @@ export default {
       this.loading = true
       this.artilleryResults = ''
 
-      if (this.chosenWorkloadProfile) {
-        axios.get('http://localhost:3000/results/static/' + this.minVU + '/' + this.duration)
-          .then(response => {
-            this.loading = false
-            this.artilleryResults = response.data
-
-            if (this.artilleryResults.includes('All virtual users finished')) {
-              var resultLen = this.artilleryResults.length
-              this.artilleryResults = this.artilleryResults.slice(this.artilleryResults.indexOf('All virtual users finished'), resultLen)
-            }
-
-            console.log('artillery results: \n' + this.artilleryResults)
-          }).catch(function (error) {
-            console.error('fetchResults failed', error.toString())
-          })
+      console.log('fetchResults called')
+      if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 5000) {
+        this.$refs.resultsComponent.getStaticHealthCareMaxWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 3500) {
+        this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 2500) {
+        this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
       }
+
+      // if (this.chosenWorkloadProfile) {
+      //   axios.get('http://localhost:3000/results/static/' + this.minVU + '/' + this.duration)
+      //     .then(response => {
+      //       this.loading = false
+      //       this.artilleryResults = response.data
+
+      //       if (this.artilleryResults.includes('All virtual users finished')) {
+      //         var resultLen = this.artilleryResults.length
+      //         this.artilleryResults = this.artilleryResults.slice(this.artilleryResults.indexOf('All virtual users finished'), resultLen)
+      //       }
+
+      //       console.log('artillery results: \n' + this.artilleryResults)
+      //     }).catch(function (error) {
+      //       console.error('fetchResults failed', error.toString())
+      //     })
+      // }
     },
     setWorkload: function (workload) {
       this.chosenWorkload = workload
@@ -276,10 +271,10 @@ export default {
 
       if (this.chosenWorkload === 'healthCare') {
         this.isHealthCare = true
-        this.isSurvey = false
-      } else if (this.chosenWorkload === 'survey') {
+        this.isEcommerce = false
+      } else if (this.chosenWorkload === 'ecommerce') {
         this.isHealthCare = false
-        this.isSurvey = true
+        this.isEcommerce = true
       }
     },
     setWorkloadProfile: function (workloadProfile) {
@@ -302,8 +297,9 @@ export default {
       }
     },
     updateWorkloadAmount (value) {
-      this.workerAmount = value // someValue
+      this.workerAmount = value
     },
+
     getStatusCodes: function () {
 
     }

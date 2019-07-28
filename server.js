@@ -1,12 +1,21 @@
 var express = require('express');
 var path = require('path')
 var app = express();
+const cors = require('cors');
 const { exec } = require('child_process');
 const fs = require('fs') 
+
+app.use(cors());
 // ------------------------------------------------------
 // Define Routes: Static
 // ------------------------------------------------------
-app.get('/', (req, res) => res.sendFile(__dirname + '/views/index.html'))
+app.get('/test', (req, res) => {
+    res.json({
+        message: 'Test'
+    });
+});
+
+// app.get('/', (req, res) => res.sendFile(__dirname + '/views/index.html'))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/results/static/:vus/:duration', function (req, res) {
@@ -52,6 +61,7 @@ app.get('/results/static/:vus/:duration', function (req, res) {
 // ------------------------------------------------------
 // listen for requests
 // ------------------------------------------------------
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`listening on ${port}`);
 });

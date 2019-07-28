@@ -120,7 +120,7 @@
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile =='static' ">
         <div class="col-md-12"><h1> Choose the amount of users</h1></div>
         <div class="col-md-12">
-          <VueSliderBar></VueSliderBar>
+          <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
         <!--
@@ -220,7 +220,8 @@ export default {
       loading: false,
       minVU: null,
       maxVU: null,
-      duration: null
+      duration: null,
+      workerAmount: null
     }
   },
   computed: {
@@ -299,6 +300,9 @@ export default {
         this.isBurst = false
         this.isStatic = true
       }
+    },
+    updateWorkloadAmount (value) {
+      this.workerAmount = value // someValue
     },
     getStatusCodes: function () {
 

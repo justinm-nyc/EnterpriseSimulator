@@ -7,7 +7,8 @@
         :labelStyles="{ color: '#1066FD', backgroundColor: '#4a4a4a' }"
         :processStyle="{ backgroundColor: '#d8d8d8' }"
         @callbackRange="callbackRange"
-        class="demo-demo">
+        class="demo-demo"
+        v-on:input="$emit('sliderValueChosen', slider.value)">
     <template slot="tooltip" slot-scope="tooltip">
         <img src="images/rectangle-slider.svg">
     </template>

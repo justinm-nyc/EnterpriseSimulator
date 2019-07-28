@@ -8,7 +8,7 @@
 
 ``` bash
 # install dependencies
-npm init
+npm install
 
 # serve with hot reload at localhost:8080
 node server.js

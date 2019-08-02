@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.19.0",
     "cors": "^2.8.5",
+    "exec": "^0.2.1",
     "express": "^4.17.1",
     "zingchart": "^2.8.6"
   },

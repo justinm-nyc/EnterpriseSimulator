@@ -99,11 +99,12 @@
       <!-- Parameter Selection For Static Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile =='static' ">
         <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
+
         <div class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
-        <!--
+                <!--
         <form>
           <div class="col-md-12">
             <div class="form-group row">
@@ -135,45 +136,48 @@
 
     </div>
 
-    <!-- Results for static workload profile -->
-        <!--  <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && Number(duration) > 5 && duration != null && chosenWorkloadProfile == 'static' ">  -->
-    <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile == 'static' ">
+    <div>
+      <!-- Results for static workload profile -->
+          <!--  <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && Number(duration) > 5 && duration != null && chosenWorkloadProfile == 'static' ">  -->
+      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile == 'static' ">
+          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+              <p class="btnText">FETCH RESULTS</p>
+              <div class="btnTwo">
+                <p class="btnText2">GO!</p>
+              </div>
+          </div>
+
+          <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <div class="col-md-5 linear-progress-material" v-if="loading">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+          </div>
+
+          <div class="col-md-12 artilleryResults">
+            <h5 class="center"> {{ artilleryResults }} </h5>
+          </div>
+        </div>
+
+    <!-- Results  for burst and ramp Workload Payload  -->
+      <div class="results-div TEST2 row mb-2 justify-content-md-center shadow-md" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
         <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
             <p class="btnText">FETCH RESULTS</p>
             <div class="btnTwo">
               <p class="btnText2">GO!</p>
             </div>
-         </div>
-
+        </div>
         <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
         <div class="col-md-5 linear-progress-material" v-if="loading">
           <div class="bar bar1"></div>
           <div class="bar bar2"></div>
         </div>
+
         <div class="col-md-12 artilleryResults">
-          <Results ref="resultsComponent"></Results>
-          <h5 class="center"> {{ artilleryResults }} </h5>
+          {{ artilleryResults }}
         </div>
       </div>
-
-   <!-- Results  for burst and ramp Workload Payload  -->
-    <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
-      <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
-          <p class="btnText">FETCH RESULTS</p>
-          <div class="btnTwo">
-            <p class="btnText2">GO!</p>
-          </div>
-       </div>
-      <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
-      <div class="col-md-5 linear-progress-material" v-if="loading">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
-      </div>
-      <div class="col-md-12 artilleryResults">
-        <Results ref="resultsComponent"></Results>
-        {{ artilleryResults }}
-      </div>
     </div>
+     <Results ref="resultsComponent" ></Results>
   </div>
   </main>
 
@@ -193,7 +197,7 @@ export default {
   },
   data () {
     return {
-      artilleryResults: '',
+      artilleryResults: null,
       chosenWorkload: '',
       chosenWorkloadProfile: '',
       workloadSelected: false,
@@ -236,7 +240,7 @@ export default {
   methods: {
     fetchResults: function () {
       this.loading = true
-      this.artilleryResults = ''
+      this.artilleryResults = null
 
       console.log('fetchResults called')
       if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 5000) {
@@ -298,10 +302,6 @@ export default {
     },
     updateWorkloadAmount (value) {
       this.workerAmount = value
-    },
-
-    getStatusCodes: function () {
-
     }
   }
 }

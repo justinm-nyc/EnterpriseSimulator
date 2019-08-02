@@ -21,6 +21,7 @@ body{
 
 .artilleryResults {
     white-space: pre-wrap;
+    padding-top: 30px
 }
 
 .app-buttons{
@@ -260,8 +261,6 @@ body{
   }
 
 
-
-
 /*# sourceMappingURL=output.css.map */
 
 .footer{
@@ -292,7 +291,6 @@ body{
 }
 
 
-
 .alert-danger {
     color: white;
     opacity: 0.85;
@@ -300,7 +298,24 @@ body{
     border-color: white;
 }
 
+#chartDiv-top{
+    position: inherit !important;;
+}
 
+.graph {  
+    min-height: 400px;
+    min-width: 450px;
+    margin: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.anychart-credits{
+    visibility: hidden;
+}
+
+.graphs-row{
+    padding-bottom: 100px;
+}
 
 html{
     height: 100%;

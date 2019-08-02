@@ -14,8 +14,7 @@
     </template>
     </VueSlideBar>
     <div>
-        <h4>Value: {{slider.value}}</h4>
-        <h4>Label: {{rangeValue.label}}</h4>
+        <h4>{{rangeValue.label}}</h4>
     </div>
 </div>
 </template>
@@ -39,13 +38,13 @@ export default {
         ],
         range: [
           {
-            label: '2500 Workers'
+            label: '2500 Virtual Users'
           },
           {
-            label: '3500 Workers'
+            label: '3500 Virtual Users'
           },
           {
-            label: '5000 Workers'
+            label: '5000 Virtual Users'
           }
         ]
       }

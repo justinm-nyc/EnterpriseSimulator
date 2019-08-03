@@ -177,7 +177,7 @@
         </div>
       </div>
     </div>
-     <Results ref="resultsComponent" ></Results>
+     <Results @graphsDone="showGraphResults" ref="resultsComponent" v-if="showResults"></Results>
   </div>
   </main>
 
@@ -208,6 +208,7 @@ export default {
       isStatic: false,
       isBurst: false,
       loading: false,
+      showResults: false,
       minVU: null,
       maxVU: null,
       duration: null,
@@ -244,11 +245,13 @@ export default {
 
       console.log('fetchResults called')
       if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 5000) {
-        this.$refs.resultsComponent.getStaticHealthCareMaxWorkers()
+          this.$refs.resultsComponent.getStaticHealthCareMaxWorkers()
+        
       } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 3500) {
-        this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
+          this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
+        
       } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 2500) {
-        this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
+          this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
       }
 
       // if (this.chosenWorkloadProfile) {
@@ -302,6 +305,9 @@ export default {
     },
     updateWorkloadAmount (value) {
       this.workerAmount = value
+    },
+    showGraphResults () {
+      this.showResults = true
     }
   }
 }

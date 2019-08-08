@@ -100,7 +100,7 @@
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile =='static' ">
         <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
 
-        <div class="col-md-12">
+        <div v-bind:class="{ disable: loading }" class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
@@ -159,7 +159,7 @@
         </div>
 
     <!-- Results  for burst and ramp Workload Payload  -->
-      <div class="results-div TEST2 row mb-2 justify-content-md-center shadow-md" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
+      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
         <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
             <p class="btnText">FETCH RESULTS</p>
             <div class="btnTwo">
@@ -177,7 +177,7 @@
         </div>
       </div>
     </div>
-     <Results @graphsDone="showGraphResults" ref="resultsComponent" v-if="showResults"></Results>
+     <Results @resultsFetched="stopLoading" ref="resultsComponent"></Results>
   </div>
   </main>
 
@@ -208,7 +208,6 @@ export default {
       isStatic: false,
       isBurst: false,
       loading: false,
-      showResults: false,
       minVU: null,
       maxVU: null,
       duration: null,
@@ -244,14 +243,14 @@ export default {
       this.artilleryResults = null
 
       console.log('fetchResults called')
-      if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 5000) {
-          this.$refs.resultsComponent.getStaticHealthCareMaxWorkers()
-        
-      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 3500) {
-          this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
-        
-      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 2500) {
-          this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
+      if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 4500) {
+        this.$refs.resultsComponent.getStaticHealthCareMaxWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 3000) {
+        this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
+        this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
+      } else if (this.chosenWorkload === 'ecommerce' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
+        this.$refs.resultsComponent.getStaticEcommerceLowWorkers()
       }
 
       // if (this.chosenWorkloadProfile) {
@@ -306,8 +305,9 @@ export default {
     updateWorkloadAmount (value) {
       this.workerAmount = value
     },
-    showGraphResults () {
-      this.showResults = true
+    stopLoading () {
+      console.log('stopLoading called')
+      this.loading = false
     }
   }
 }

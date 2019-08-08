@@ -30,21 +30,21 @@ export default {
     return {
       rangeValue: {},
       slider: {
-        value: 3500,
+        value: 3000,
         data: [
-          2500,
-          3500,
-          5000
+          1500,
+          3000,
+          4500
         ],
         range: [
           {
-            label: '2500 Virtual Users'
+            label: '1500 Virtual Users'
           },
           {
-            label: '3500 Virtual Users'
+            label: '3000 Virtual Users'
           },
           {
-            label: '5000 Virtual Users'
+            label: '4500 Virtual Users'
           }
         ]
       }

@@ -10,10 +10,10 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
+    "node-fetch": "^2.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vue-slide-bar": "^1.2.0",
-    "zingchart": "^2.8.6"
+    "vue-slide-bar": "^1.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",

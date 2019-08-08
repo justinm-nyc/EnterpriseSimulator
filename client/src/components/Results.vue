@@ -22,8 +22,8 @@ export default {
       staticInsert503Total: 0,
       staticInsert500Total: 0,
       insertStackLow: [1, 2, 3],
-      insertStackMid: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      insertStackHi: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      insertStackMid: [1, 2, 3, 4, 5, 6],
+      insertStackHi: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       staticUpdate200Total: 0,
       staticUpdate302Total: 0,
       staticUpdate503Total: 0,
@@ -41,476 +41,56 @@ export default {
     }
   },
   methods: {
+    getStaticEcommerceLowWorkers: async function () {
+      console.log('getStaticEcommerceLowWorkers called')
+      this.insertLowEcommerce()
+      this.insertLowEcommerce()
+    },
     getStaticHealthCareMaxWorkers: async function () {
       console.log('getStaticHealthCareMaxWorkers called')
       // 6 Insert Static Functions
-      await axios.get(config.insertStaticEndpoint200)
-        .then(response => {
-          this.loading = false
-          let artilleryResults1 = response.data
-          console.log(artilleryResults1)
-          this.messageResults = JSON.parse(artilleryResults1.body).message
-
-          console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-        }).catch(function (error) {
-          console.error('fetchResults failed', error.toString())
-        }).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults2 = response.data
-              console.log(artilleryResults2)
-              this.messageResults = JSON.parse(artilleryResults2.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults3 = response.data
-              console.log(artilleryResults3)
-              this.messageResults = JSON.parse(artilleryResults3.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults4 = response.data
-              console.log(artilleryResults4)
-              this.messageResults = JSON.parse(artilleryResults4.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults5 = response.data
-              console.log(artilleryResults5)
-              this.messageResults = JSON.parse(artilleryResults5.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults6 = response.data
-              console.log(artilleryResults6)
-              this.messageResults = JSON.parse(artilleryResults6.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults7 = response.data
-              console.log(artilleryResults7)
-              this.messageResults = JSON.parse(artilleryResults7.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          // 2 Update Static Functions
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults8 = response.data
-              console.log(artilleryResults8)
-              this.messageResults = JSON.parse(artilleryResults8.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults9 = response.data
-              console.log(artilleryResults9)
-              this.messageResults = JSON.parse(artilleryResults9.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults10 = response.data
-              console.log(artilleryResults10)
-              this.messageResults = JSON.parse(artilleryResults10.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-          // 2 Read Static Functions
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResult11 = response.data
-              console.log(artilleryResult11)
-              this.messageResults = JSON.parse(artilleryResult11.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults12 = response.data
-              console.log(artilleryResults12)
-              this.messageResults = JSON.parse(artilleryResults12.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults13 = response.data
-              console.log(artilleryResults13)
-              this.messageResults = JSON.parse(artilleryResults13.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults14 = response.data
-              console.log(artilleryResults14)
-              this.messageResults = JSON.parse(artilleryResults14.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-
-        ).then(
-
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults15 = response.data
-              console.log(artilleryResults15)
-              this.messageResults = JSON.parse(artilleryResults15.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults16 = response.data
-              console.log(artilleryResults16)
-              this.messageResults = JSON.parse(artilleryResults16.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults17 = response.data
-              console.log(artilleryResults17)
-              this.messageResults = JSON.parse(artilleryResults17.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults18 = response.data
-              console.log(artilleryResults18)
-              this.messageResults = JSON.parse(artilleryResults18.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults19 = response.data
-              console.log(artilleryResults19)
-              this.messageResults = JSON.parse(artilleryResults19.body).message
-
-              console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        )
+      this.insertStaticHi()
+      this.insertStaticHi()
+      this.insertStaticHi()
+      this.readStaticHi()
+      this.updateStaticHi()
+      setTimeout(this.insertStaticHi, 130000)
+      setTimeout(this.insertStaticHi, 130000)
+      setTimeout(this.insertStaticHi, 130000)
+      setTimeout(this.readStaticHi, 130000)
+      setTimeout(this.updateStaticHi, 130000)
+      setTimeout(this.insertStaticHi, 250000)
+      setTimeout(this.insertStaticHi, 250000)
+      setTimeout(this.insertStaticHi, 250000)
+      setTimeout(this.readStaticHi, 250000)
+      setTimeout(this.updateStaticHi, 250000)
     },
     getStaticHealthCareMidWorkers: async function () {
       console.log('getStaticHealthCareMidWorkers called')
-      // 3 Insert Static Functions
-      await axios.get(config.insertStaticEndpoint200)
-        .then(response => {
-          this.loading = false
-          let artilleryResults1 = response.data
-          console.log(artilleryResults1)
-          this.messageResults = JSON.parse(artilleryResults1.body).message
+      var date = new Date()
+      console.log(date.toUTCString())
 
-          console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-        }).catch(function (error) {
-          console.error('fetchResults failed', error.toString())
-        }).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults2 = response.data
-              console.log(artilleryResults2)
-              this.messageResults = JSON.parse(artilleryResults2.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults3 = response.data
-              console.log(artilleryResults3)
-              this.messageResults = JSON.parse(artilleryResults3.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults4 = response.data
-              console.log(artilleryResults4)
-              this.messageResults = JSON.parse(artilleryResults4.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          // 2 Read Static Functions
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults5 = response.data
-              console.log(artilleryResults5)
-              this.messageResults = JSON.parse(artilleryResults5.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults6 = response.data
-              console.log(artilleryResults6)
-              this.messageResults = JSON.parse(artilleryResults6.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults7 = response.data
-              console.log(artilleryResults7)
-              this.messageResults = JSON.parse(artilleryResults7.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults8 = response.data
-              console.log(artilleryResults8)
-              this.messageResults = JSON.parse(artilleryResults8.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults9 = response.data
-              console.log(artilleryResults9)
-              this.messageResults = JSON.parse(artilleryResults9.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults10 = response.data
-              console.log(artilleryResults10)
-              this.messageResults = JSON.parse(artilleryResults10.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults11 = response.data
-              console.log(artilleryResults11)
-              this.messageResults = JSON.parse(artilleryResults11.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults12 = response.data
-              console.log(artilleryResults12)
-              this.messageResults = JSON.parse(artilleryResults12.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint200)
-            .then(response => {
-              this.loading = false
-              let artilleryResults12 = response.data
-              console.log(artilleryResults12)
-              this.messageResults = JSON.parse(artilleryResults12.body).message
-
-              console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        )
+      // Total 3000 Virtual users
+      this.insertStaticMid()
+      this.insertStaticMid()
+      this.insertStaticMid()
+      this.readStaticMid()
+      this.updateStaticMid()
+      setTimeout(this.insertStaticMid, 120000)
+      setTimeout(this.updateStaticMid, 120000)
+      setTimeout(this.insertStaticMid, 120000)
+      setTimeout(this.readStaticMid, 120000)
+      setTimeout(this.insertStaticMid, 120000)
     },
     getStaticHealthCareLowWorkers: async function () {
       console.log('getStaticHealthCareLowWorkers called')
-      // 3 Insert Static Functions
-      await axios.get(config.insertStaticEndpoint)
-        .then(response => {
-          this.loading = false
-          let artilleryResults1 = response.data
-          console.log(artilleryResults1)
-          this.messageResults = JSON.parse(artilleryResults1.body).message
-
-          console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'insert') + '\n')
-        }).catch(function (error) {
-          console.error('fetchResults failed', error.toString())
-        }).then(
-          await axios.get(config.insertStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults2 = response.data
-              console.log(artilleryResults2)
-              this.messageResults = JSON.parse(artilleryResults2.body).message
-
-              console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          await axios.get(config.insertStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults3 = response.data
-              console.log(artilleryResults3)
-              this.messageResults = JSON.parse(artilleryResults3.body).message
-
-              console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'insert') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          // 1 Update Static Functions
-          await axios.get(config.updateStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults4 = response.data
-              // console.log(this.artilleryResults)
-              this.messageResults = JSON.parse(artilleryResults4.body).message
-
-              console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'update') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        ).then(
-          // 1 Read Static Functions
-          await axios.get(config.readStaticEndpoint)
-            .then(response => {
-              this.loading = false
-              let artilleryResults5 = response.data
-              // console.log(this.artilleryResults)
-              this.messageResults = JSON.parse(artilleryResults5.body).message
-
-              console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'read') + '\n')
-            }).catch(function (error) {
-              console.error('fetchResults failed', error.toString())
-            })
-        )
+      var date = new Date()
+      console.log(date.toUTCString())
+      this.insertStaticLow()
+      this.insertStaticLow()
+      this.insertStaticLow()
+      this.readStaticLow()
+      this.updateStaticLow()
     },
     reduceToCodes: function (results) {
       var resultsArray = ''
@@ -537,6 +117,8 @@ export default {
       return resultsArray
     },
     getCodesLow: function (results, transactionType) {
+      // 2 minutes
+      var self = this
       console.log(results)
       if (transactionType === 'insert') {
         var resultsArray1 = this.reduceToCodes(results)
@@ -560,7 +142,11 @@ export default {
         // If insertStack is empty then all requests have been completed and the graphs can be updated
         if (this.insertStackLow.length === 0) {
           console.log('InsertStackLow is empty')
-          this.$refs.GraphRef.drawInsertGraph(this.staticInsert200Total, this.staticInsert302Total, this.staticInsert500Total, this.staticInsert503Total)
+          if (this.updateStackLow.length === 0 && this.readStackLow.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray1
       } else if (transactionType === 'update') {
@@ -586,7 +172,11 @@ export default {
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.updateStackLow.length === 0) {
           console.log('updateStackLow is empty')
-          this.$refs.GraphRef.drawUpdateGraph(this.staticUpdate200Total, this.staticUpdate302Total, this.staticUpdate500Total, this.staticUpdate503Total)
+          if (this.readStackLow.length === 0 && this.insertStackLow.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray2
       } else if (transactionType === 'read') {
@@ -610,8 +200,12 @@ export default {
         this.readStackLow.pop()
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.readStackLow.length === 0) {
-          console.log('ReadStack is empty')
-          this.$refs.GraphRef.drawReadGraph(this.staticRead200Total, this.staticRead302Total, this.staticRead500Total, this.staticRead503Total)
+          console.log('ReadStackLow is empty')
+          if (this.updateStackLow.length === 0 && this.insertStackLow.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray3
       }
@@ -619,6 +213,7 @@ export default {
 
     getCodesMid: function (results, transactionType) {
       console.log(results)
+      var self = this
       if (transactionType === 'insert') {
         var resultsArray1 = this.reduceToCodes(results)
         for (var i = 0; i < resultsArray1.length; i = i + 2) {
@@ -641,7 +236,12 @@ export default {
         // If insertStack is empty then all requests have been completed and the graphs can be updated
         if (this.insertStackMid.length === 0) {
           console.log('insertStackMid is empty')
-          this.$refs.GraphRef.drawInsertGraph(this.staticInsert200Total, this.staticInsert302Total, this.staticInsert500Total, this.staticInsert503Total)
+          if (this.updateStackMid.length === 0 && this.readStackMid.length === 0) {
+            console.log('updateStackMid is empty and readStackMid is empty')
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray1
       } else if (transactionType === 'update') {
@@ -667,7 +267,12 @@ export default {
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.updateStackMid.length === 0) {
           console.log('updateStackMid is empty')
-          this.$refs.GraphRef.drawUpdateGraph(this.staticUpdate200Total, this.staticUpdate302Total, this.staticUpdate500Total, this.staticUpdate503Total)
+          if (this.readStackMid.length === 0 && this.insertStackMid.length === 0) {
+            console.log('readStackMid is empty and insertStackMid is empty')
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray2
       } else if (transactionType === 'read') {
@@ -692,7 +297,12 @@ export default {
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.readStackMid.length === 0) {
           console.log('readStackMid is empty')
-          this.$refs.GraphRef.drawReadGraph(this.staticRead200Total, this.staticRead302Total, this.staticRead500Total, this.staticRead503Total)
+          if (this.updateStackMid.length === 0 && this.insertStackMid.length === 0) {
+            console.log('updateStackMid is empty and insertStackMid is empty')
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray3
       }
@@ -700,6 +310,7 @@ export default {
 
     getCodesHi: function (results, transactionType) {
       console.log(results)
+      var self = this
       if (transactionType === 'insert') {
         var resultsArray1 = this.reduceToCodes(results)
         for (var i = 0; i < resultsArray1.length; i = i + 2) {
@@ -721,8 +332,12 @@ export default {
         this.insertStackHi.pop()
         // If insertStack is empty then all requests have been completed and the graphs can be updated
         if (this.insertStackHi.length === 0) {
-          console.log('insertStackMid is empty')
-          this.$refs.GraphRef.drawInsertGraph(this.staticInsert200Total, this.staticInsert302Total, this.staticInsert500Total, this.staticInsert503Total)
+          console.log('insertStackHi is empty')
+          if (this.updateStackHi.length === 0 && this.readStackHi.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray1
       } else if (transactionType === 'update') {
@@ -747,8 +362,12 @@ export default {
         this.updateStackHi.pop()
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.updateStackHi.length === 0) {
-          console.log('updateStackMid is empty')
-          this.$refs.GraphRef.drawUpdateGraph(this.staticUpdate200Total, this.staticUpdate302Total, this.staticUpdate500Total, this.staticUpdate503Total)
+          console.log('updateStackHi is empty')
+          if (this.readStackHi.length === 0 && this.insertStackHi.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray2
       } else if (transactionType === 'read') {
@@ -772,13 +391,181 @@ export default {
         this.readStackHi.pop()
         // If UpdateStack is empty then all requests have been completed and the graphs can be updated
         if (this.readStackHi.length === 0) {
-          console.log('readStackMid is empty')
-          this.$refs.GraphRef.drawReadGraph(this.staticRead200Total, this.staticRead302Total, this.staticRead500Total, this.staticRead503Total)
+          console.log('readStackHi is empty')
+          if (this.updateStackHi.length === 0 && this.insertStackHi.length === 0) {
+            this.triggerGraphVisibilityStep1().then(function () {
+              self.triggerGraphVisibilityStep2()
+            })
+          }
         }
         return resultsArray3
       }
-    }
+    },
+    triggerGraphVisibilityStep1 () {
+      console.log('triggerGraphVisibilityStep1 called')
+      let result1 = this.$refs.GraphRef.changeShowGraphs()
+      return new Promise(function (resolve, reject) {
+        setTimeout(() => resolve(result1), 1000)
+      })
+    },
+    triggerGraphVisibilityStep2 () {
+      console.log('triggerGraphVisibilityStep2 called')
+      this.$refs.GraphRef.drawReadGraph(this.staticRead200Total, this.staticRead302Total, this.staticRead500Total, this.staticRead503Total)
+      this.$refs.GraphRef.drawUpdateGraph(this.staticUpdate200Total, this.staticUpdate302Total, this.staticUpdate500Total, this.staticUpdate503Total)
+      this.$refs.GraphRef.drawInsertGraph(this.staticInsert200Total, this.staticInsert302Total, this.staticInsert500Total, this.staticInsert503Total)
+      this.changedLoadingBool()
+      console.log('done')
+      var date2 = new Date()
+      console.log(date2.toUTCString())
+    },
+    changedLoadingBool (event) {
+      this.$emit('resultsFetched', true)
+    },
+    insertLowEcommerce: async function () {
+      await axios.get(config.insertStaticEcommerceEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          this.messageResults = artilleryResults1.message
+          // JSON.parse(artilleryResults1.body).message
 
+          console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'insert') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+    insertStaticLow: async function () {
+      await axios.get(config.insertStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          this.messageResults = artilleryResults1.message
+
+          console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'insert') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+    updateStaticLow: async function () {
+      await axios.get(config.updateStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults4 = response.data
+          // console.log(this.artilleryResults)
+          this.messageResults = JSON.parse(artilleryResults4.body).message
+
+          console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'update') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+    readStaticLow: async function () {
+      await axios.get(config.readStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults5 = response.data
+          // console.log(this.artilleryResults)
+          this.messageResults = JSON.parse(artilleryResults5.body).message
+
+          console.log('artillery results: \n' + this.getCodesLow(this.messageResults, 'read') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+
+    insertStaticHi: async function () {
+      await axios.get(config.insertStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          console.log('artilleryResults1 are ' + artilleryResults1)
+          console.log(typeof (artilleryResults1))
+          this.messageResults = artilleryResults1.message
+          // JSON.parse(artilleryResults1.body).message
+
+          console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'insert') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+
+    updateStaticHi: async function () {
+      await axios.get(config.updateStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          console.log('artilleryResults1 are ' + artilleryResults1)
+          console.log(typeof (artilleryResults1))
+          this.messageResults = JSON.parse(artilleryResults1.body).message
+
+          console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'update') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+
+    readStaticHi: async function () {
+      await axios.get(config.readStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          console.log('artilleryResults1 are ' + artilleryResults1)
+          console.log(typeof (artilleryResults1))
+          this.messageResults = JSON.parse(artilleryResults1.body).message
+
+          console.log('artillery results: \n' + this.getCodesHi(this.messageResults, 'read') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+
+    insertStaticMid: async function () {
+      await axios.get(config.insertStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults1 = response.data
+          console.log(artilleryResults1)
+          console.log('artilleryResults1 are ' + artilleryResults1)
+          console.log(typeof (artilleryResults1))
+          this.messageResults = artilleryResults1.message
+          // JSON.parse(artilleryResults1.body).message
+
+          console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'insert') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+    readStaticMid: async function () {
+      await axios.get(config.readStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults6 = response.data
+          console.log(artilleryResults6)
+          this.messageResults = JSON.parse(artilleryResults6.body).message
+
+          console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'read') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    },
+    updateStaticMid: async function () {
+      await axios.get(config.updateStaticEndpoint)
+        .then(response => {
+          this.loading = false
+          let artilleryResults8 = response.data
+          console.log(artilleryResults8)
+          this.messageResults = JSON.parse(artilleryResults8.body).message
+
+          console.log('artillery results: \n' + this.getCodesMid(this.messageResults, 'update') + '\n')
+        }).catch(function (error) {
+          console.error('fetchResults failed', error.toString())
+        })
+    }
   }
 
 }

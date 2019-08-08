@@ -8,7 +8,8 @@
     "cors": "^2.8.5",
     "exec": "^0.2.1",
     "express": "^4.17.1",
-    "zingchart": "^2.8.6"
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {

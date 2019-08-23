@@ -77,6 +77,7 @@ body{
     letter-spacing: .025em;
     text-align: center;
     display: inline-block;
+    max-width: 600px;
 }
 
 .disable {

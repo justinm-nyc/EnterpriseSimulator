@@ -98,12 +98,16 @@
       <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'static' ">
           <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
               <p class="btnText">FETCH RESULTS</p>
+
               <div class="btnTwo">
                 <p class="btnText2">GO!</p>
               </div>
           </div>
 
           <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <h5 class="col-md-12" v-if="loading && workerAmount===4500">Duration Estimate: 5 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===3000">Duration Estimate: 3 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===1500">Duration Estimate: 2 Minutes </h5>
           <div class="col-md-5 linear-progress-material" v-if="loading">
             <div class="bar bar1"></div>
             <div class="bar bar2"></div>
@@ -124,6 +128,9 @@
           </div>
 
           <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <h5 class="col-md-12" v-if="loading && workerAmount===4500">Duration Estimate: 6 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===3000">Duration Estimate: 4 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===1500">Duration Estimate: 2 Minutes </h5>
           <div class="col-md-5 linear-progress-material" v-if="loading">
             <div class="bar bar1"></div>
             <div class="bar bar2"></div>
@@ -146,6 +153,9 @@
           </div>
 
           <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <h5 class="col-md-12" v-if="loading && workerAmount===4500">Duration Estimate: 6 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===3000">Duration Estimate: 3 Minutes </h5>
+          <h5 class="col-md-12" v-if="loading && workerAmount===1500">Duration Estimate: 2 Minutes </h5>
           <div class="col-md-5 linear-progress-material" v-if="loading">
             <div class="bar bar1"></div>
             <div class="bar bar2"></div>
@@ -241,7 +251,6 @@ export default {
       } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'burst' && this.workerAmount === 1500) {
         this.$refs.resultsComponent.getBurstHealthCareLowWorkers()
       } else if (this.chosenWorkload === 'ecommerce' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
-        console.log('getStaticEcommerceLowWorkers CALLED FROM APP.VUE')
         this.$refs.resultsComponent.getStaticEcommerceLowWorkers()
       }
       // if (this.chosenWorkloadProfile) {

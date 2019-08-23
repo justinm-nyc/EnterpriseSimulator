@@ -83,6 +83,8 @@ export default {
       readBurstStackMid: [1, 2],
       readBurstStackHi: [1, 2, 3],
 
+      graphsShown: false,
+
       this: this
 
     }
@@ -1224,6 +1226,8 @@ export default {
     triggerGraphVisibilityStep1 () {
       console.log('triggerGraphVisibilityStep1 called')
       let result1 = this.$refs.GraphRef.changeShowGraphs()
+      this.graphsShown = true
+
       return new Promise(function (resolve, reject) {
         setTimeout(() => resolve(result1), 1000)
       })

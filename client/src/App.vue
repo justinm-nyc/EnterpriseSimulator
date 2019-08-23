@@ -15,9 +15,9 @@
     </div>
     <div class="container">
       <div class= "process-div row mb-2">
-        <div class="col-md-12"><h1> Choose a workload</h1></div>
+        <div class="col-md-12"><h1> Select a workload</h1></div>
         <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading }">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading, disable: resultsLoaded }">
             <div class="col p-4 d-flex flex-column position-static hcare" v-bind:class="{ hcareSelected: isHealthCare }" v-on:click="setWorkload('healthCare')">
               <h3 class="mb-0">Health Care</h3>
               <img class="center" src="/images/healthcare.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading }">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading, disable: resultsLoaded }">
             <div class="col p-4 d-flex flex-column position-static ecommerce" v-bind:class="{ ecommerceSelected: isEcommerce }" v-on:click="setWorkload('ecommerce')">
               <h3 class="mb-0">E-commerce</h3>
               <img class="center" src="/images/buy.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
@@ -36,9 +36,9 @@
       </div>
 
       <div class="workload-profile-div process-div row mb-2"  v-bind:class="{ slideDown: workloadSelected }" v-if="chosenWorkload !=''">
-        <div class="col-md-12"><h1> Choose a workload profile</h1></div>
+        <div class="col-md-12"><h1> Select a workload profile</h1></div>
         <div class="col-md-4">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading }">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading, disable: resultsLoaded }">
             <div class="col p-4 d-flex flex-column position-static ramp" v-bind:class="{ rampSelected: isRamp }" v-on:click="setWorkloadProfile('ramp')">
               <h3 class="mb-0">Ramp</h3>
               <img class="center" src="/images/ramp.svg" alt="healthcare icon made by Freepik" height="100px" width="160px">
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading }">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-md h-md-250 position-relative app-buttons" v-bind:class="{ disable: loading, disable: resultsLoaded }">
             <div class="col p-4 d-flex flex-column position-static burst" v-bind:class="{ burstSelected: isBurst }" v-on:click="setWorkloadProfile('burst')">
               <h3 class="mb-0 center ">Burst</h3>
               <img class="center" src="/images/burst.svg" alt="burst icon made by Freepik" height="100px" width="160px">
@@ -65,18 +65,18 @@
 
       <!-- Parameter Selection For Burst and Ramp Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='ramp' ">
-        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
+        <div class="col-md-12"><h1> Select a workload size - amount of virtual users</h1></div>
 
-        <div v-bind:class="{ disable: loading }" class="col-md-12">
+        <div v-bind:class="{ disable: loading, disable: resultsLoaded }" class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
       </div>
 
       <!-- Parameter Selection For Ramp Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='static' ">
-        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
+        <div class="col-md-12"><h1> Select a workload size - amount of virtual users</h1></div>
 
-        <div v-bind:class="{ disable: loading }" class="col-md-12">
+        <div v-bind:class="{ disable: loading, disable: resultsLoaded }" class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
@@ -84,9 +84,9 @@
 
       <!-- Parameter Selection For Burst Workload Payload -->
       <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='burst' ">
-        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
+        <div class="col-md-12"><h1> Select a workload size - amount of virtual users</h1></div>
 
-        <div v-bind:class="{ disable: loading }" class="col-md-12">
+        <div v-bind:class="{ disable: loading, disable: resultsLoaded }" class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
@@ -96,7 +96,7 @@
     <div>
       <!-- Results for static workload profile -->
       <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'static' ">
-          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+          <div class="fetch-button" v-if="!loading && !resultsLoaded" v-on:click="fetchResults()" >
               <p class="btnText">FETCH RESULTS</p>
 
               <div class="btnTwo">
@@ -120,7 +120,7 @@
 
     <!-- Results  for ramp Workload Payload -->
      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'ramp' ">
-          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+          <div class="fetch-button" v-if="!loading && !resultsLoaded"  v-on:click="fetchResults()" >
               <p class="btnText">FETCH RESULTS</p>
               <div class="btnTwo">
                 <p class="btnText2">GO!</p>
@@ -145,7 +145,7 @@
 
     <!-- Results for burst Workload Payload -->
      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'burst' ">
-          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+          <div class="fetch-button" v-if="!loading && !resultsLoaded"  v-on:click="fetchResults()" >
               <p class="btnText">FETCH RESULTS</p>
               <div class="btnTwo">
                 <p class="btnText2">GO!</p>
@@ -166,7 +166,15 @@
           </div>
         </div>
 
-     <Results @resultsFetched="stopLoading" ref="resultsComponent"></Results>
+      <Results @resultsFetched="stopLoading" ref="resultsComponent"></Results>
+      <div v-if="resetButtonShown" class="results-div row mb-2 justify-content-md-center shadow-md">
+        <div class="fetch-button" onClick="window.location.reload();" >
+            <p class="btnText">RESET</p>
+            <div class="btnTwo">
+              <p class="btnText2">GO!</p>
+            </div>
+        </div>
+      </div>
   </div>
   </main>
 
@@ -174,7 +182,6 @@
 
 <script>
 
-import axios from 'axios'
 import VueSliderBar from './components/VueSliderBar.vue'
 import Results from './components/Results.vue'
 
@@ -186,6 +193,7 @@ export default {
   },
   data () {
     return {
+      this: this,
       artilleryResults: null,
       chosenWorkload: '',
       chosenWorkloadProfile: '',
@@ -197,27 +205,13 @@ export default {
       isStatic: false,
       isBurst: false,
       loading: false,
-      minVU: null,
-      maxVU: null,
       duration: null,
-      workerAmount: null
+      workerAmount: null,
+      resultsLoaded: false,
+      resetButtonShown: false
     }
   },
   computed: {
-    isMaxMoreThanMin: function () {
-      if (this.maxVU != null && this.minVU != null && Number(this.maxVU) > Number(this.minVU)) {
-        return true
-      } else {
-        return false
-      }
-    },
-    isMinMoreThanZero: function () {
-      if (this.minVU > 0) {
-        return true
-      } else {
-        return false
-      }
-    },
     isDurationMoreThanFive: function () {
       if (this.duration > 5) {
         return true
@@ -229,6 +223,7 @@ export default {
   methods: {
     fetchResults: function () {
       this.loading = true
+      this.resultsLoaded = true
       this.artilleryResults = null
 
       console.log('fetchResults called')
@@ -253,22 +248,6 @@ export default {
       } else if (this.chosenWorkload === 'ecommerce' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
         this.$refs.resultsComponent.getStaticEcommerceLowWorkers()
       }
-      // if (this.chosenWorkloadProfile) {
-      //   axios.get('http://localhost:3000/results/static/' + this.minVU + '/' + this.duration)
-      //     .then(response => {
-      //       this.loading = false
-      //       this.artilleryResults = response.data
-
-      //       if (this.artilleryResults.includes('All virtual users finished')) {
-      //         var resultLen = this.artilleryResults.length
-      //         this.artilleryResults = this.artilleryResults.slice(this.artilleryResults.indexOf('All virtual users finished'), resultLen)
-      //       }
-
-      //       console.log('artillery results: \n' + this.artilleryResults)
-      //     }).catch(function (error) {
-      //       console.error('fetchResults failed', error.toString())
-      //     })
-      // }
     },
     setWorkload: function (workload) {
       this.chosenWorkload = workload
@@ -308,6 +287,8 @@ export default {
     stopLoading () {
       console.log('stopLoading called')
       this.loading = false
+      this.resultsLoaded = true
+      this.resetButtonShown = true
     }
   }
 }

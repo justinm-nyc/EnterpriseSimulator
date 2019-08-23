@@ -64,82 +64,38 @@
       </div>
 
       <!-- Parameter Selection For Burst and Ramp Workload Payload -->
-      <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile !='static' ">
+      <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='ramp' ">
         <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
-        <form>
-          <div class="col-md-12">
-            <div class="form-group row">
-              <div class="col-md-6">
-                <label for="inputMin" class="col-sm-10 col-form-label">Minimum Virtual Users</label>
-                <div class="col-sm-10 inputBox">
-                  <input type="number" class="form-control" id="inputMin" placeholder="Min" v-model="minVU">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <label for="inputMax" class="col-sm-10 col-form-label">Maximum Virtual Users</label>
-                <div class="col-sm-10 inputBox">
-                  <input type="number" class="form-control" id="inputMax" placeholder="Max"  v-model="maxVU">
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="col-md-12" v-bind:class="{ warningHidden: isMinMoreThanZero }"> -->
-          <div class="col-md-12"  v-if="!isMinMoreThanZero">
-            <div class="alert alert-danger" role="alert">
-            Minimum amount of virtual users cannot be less than one.</div>
-          </div>
-          <!-- <div class="col-md-12" v-bind:class="{ warningHidden: isMaxMoreThanMin }"> -->
-          <div class="col-md-12"  v-if="!isMaxMoreThanMin">
-              <div class="alert alert-danger" role="alert">
-              Maximum amount of virtual users cannot be less than the number of minimum virtual users.</div>
-          </div>
-        </form>
+
+        <div v-bind:class="{ disable: loading }" class="col-md-12">
+          <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
+        </div>
       </div>
 
-      <!-- Parameter Selection For Static Workload Payload -->
-      <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile =='static' ">
+      <!-- Parameter Selection For Ramp Workload Payload -->
+      <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='static' ">
         <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
 
         <div v-bind:class="{ disable: loading }" class="col-md-12">
           <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
         </div>
 
-                <!--
-        <form>
-          <div class="col-md-12">
-            <div class="form-group row">
-              <div class="col-md-6">
-                <label for="inputMin" class="col-sm-10 col-form-label">Virtual Users Amount</label>
-                <div class="col-sm-10 inputBox">
-                  <input type="number" class="form-control" id="inputMin" placeholder="Amount of Virtual Users" v-model="minVU">
-                </div>
-              </div>
-              <div class="col-md-6">
-                  <label for="inputMin" class="col-sm-10 col-form-label">Duration (Seconds)</label>
-                  <div class="col-sm-10 inputBox">
-                    <input type="number" class="form-control" id="inputMin" placeholder="Duration in Seconds" v-model="duration">
-                  </div>
-                </div>
-            </div>
-          </div>
-
-          <div class="col-md-12"  v-if="!isMinMoreThanZero">
-            <div class="alert alert-danger" role="alert">Amount of virtual users cannot be less than one.</div>
-          </div>
-
-          <div class="col-md-12" v-if="!isDurationMoreThanFive" >
-              <div class="alert alert-danger" role="alert">Duration must be more than 5 seconds.</div>
-            </div>
-        </form>
-        -->
       </div>
 
+      <!-- Parameter Selection For Burst Workload Payload -->
+      <div class="parameters-div row mb-2 justify-content-md-center"  v-bind:class="{ slideDown: workloadPayloadSelected }" v-if="chosenWorkloadProfile !='' && chosenWorkloadProfile ==='burst' ">
+        <div class="col-md-12"><h1> Choose the amount of virtual users</h1></div>
+
+        <div v-bind:class="{ disable: loading }" class="col-md-12">
+          <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
+        </div>
+
+      </div>
     </div>
 
     <div>
       <!-- Results for static workload profile -->
-          <!--  <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="minVU != null && minVU !='' && Number(minVU) > 0 && Number(duration) > 5 && duration != null && chosenWorkloadProfile == 'static' ">  -->
-      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile == 'static' ">
+      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'static' ">
           <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
               <p class="btnText">FETCH RESULTS</p>
               <div class="btnTwo">
@@ -158,25 +114,48 @@
           </div>
         </div>
 
-    <!-- Results  for burst and ramp Workload Payload  -->
-      <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="maxVU !=null && minVU != null && maxVU !='' && minVU !='' && Number(maxVU) > Number(minVU) && chosenWorkloadProfile != 'static' ">
-        <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
-            <p class="btnText">FETCH RESULTS</p>
-            <div class="btnTwo">
-              <p class="btnText2">GO!</p>
-            </div>
-        </div>
-        <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
-        <div class="col-md-5 linear-progress-material" v-if="loading">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
+    <!-- Results  for ramp Workload Payload -->
+     <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'ramp' ">
+          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+              <p class="btnText">FETCH RESULTS</p>
+              <div class="btnTwo">
+                <p class="btnText2">GO!</p>
+              </div>
+          </div>
+
+          <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <div class="col-md-5 linear-progress-material" v-if="loading">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+          </div>
+
+          <div class="col-md-12 artilleryResults">
+            <h5 class="center"> {{ artilleryResults }} </h5>
+          </div>
         </div>
 
-        <div class="col-md-12 artilleryResults">
-          {{ artilleryResults }}
-        </div>
-      </div>
     </div>
+
+    <!-- Results for burst Workload Payload -->
+     <div class="results-div row mb-2 justify-content-md-center shadow-md" v-if="chosenWorkloadProfile === 'burst' ">
+          <div class="fetch-button" v-if="!loading" v-on:click="fetchResults()" >
+              <p class="btnText">FETCH RESULTS</p>
+              <div class="btnTwo">
+                <p class="btnText2">GO!</p>
+              </div>
+          </div>
+
+          <h3 class="col-md-12" v-if="loading">Fetching Results</h3>
+          <div class="col-md-5 linear-progress-material" v-if="loading">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+          </div>
+
+          <div class="col-md-12 artilleryResults">
+            <h5 class="center"> {{ artilleryResults }} </h5>
+          </div>
+        </div>
+
      <Results @resultsFetched="stopLoading" ref="resultsComponent"></Results>
   </div>
   </main>
@@ -249,10 +228,22 @@ export default {
         this.$refs.resultsComponent.getStaticHealthCareMidWorkers()
       } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
         this.$refs.resultsComponent.getStaticHealthCareLowWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'ramp' && this.workerAmount === 4500) {
+        this.$refs.resultsComponent.getRampHealthCareMaxWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'ramp' && this.workerAmount === 3000) {
+        this.$refs.resultsComponent.getRampHealthCareMidWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'ramp' && this.workerAmount === 1500) {
+        this.$refs.resultsComponent.getRampHealthCareLowWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'burst' && this.workerAmount === 4500) {
+        this.$refs.resultsComponent.getBurstHealthCareMaxWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'burst' && this.workerAmount === 3000) {
+        this.$refs.resultsComponent.getBurstHealthCareMidWorkers()
+      } else if (this.chosenWorkload === 'healthCare' && this.chosenWorkloadProfile === 'burst' && this.workerAmount === 1500) {
+        this.$refs.resultsComponent.getBurstHealthCareLowWorkers()
       } else if (this.chosenWorkload === 'ecommerce' && this.chosenWorkloadProfile === 'static' && this.workerAmount === 1500) {
+        console.log('getStaticEcommerceLowWorkers CALLED FROM APP.VUE')
         this.$refs.resultsComponent.getStaticEcommerceLowWorkers()
       }
-
       // if (this.chosenWorkloadProfile) {
       //   axios.get('http://localhost:3000/results/static/' + this.minVU + '/' + this.duration)
       //     .then(response => {

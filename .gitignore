@@ -4,11 +4,8 @@ node_modules
 static.yml
 ramp.yml
 run-enterprise.yml
-output.txt
-todo.txt
 client/node_modules
-client/src/config/config.js
-
+routes/routes.js
 # local env files
 .env.local
 .env.*.local

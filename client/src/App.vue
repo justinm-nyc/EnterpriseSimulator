@@ -68,7 +68,7 @@
         <div class="col-md-12"><h1> Select a workload size - amount of virtual users</h1></div>
 
         <div v-bind:class="{ disable: loading, disable: resultsLoaded }" class="col-md-12">
-          <VueSliderBar @sliderValueChosen="updateWorkloadAmount"></VueSliderBar>
+          <VueSliderBarRamp @sliderValueChosen="updateWorkloadAmount"></VueSliderBarRamp>
         </div>
       </div>
 
@@ -183,12 +183,14 @@
 <script>
 
 import VueSliderBar from './components/VueSliderBar.vue'
+import VueSliderBarRamp from './components/VueSliderBarRamp.vue'
 import Results from './components/Results.vue'
 
 export default {
   name: 'app',
   components: {
     VueSliderBar,
+    VueSliderBarRamp,
     Results
   },
   data () {

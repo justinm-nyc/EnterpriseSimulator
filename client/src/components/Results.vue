@@ -83,8 +83,6 @@ export default {
       readBurstStackMid: [1, 2],
       readBurstStackHi: [1, 2, 3],
 
-      graphsShown: false,
-
       this: this
 
     }
@@ -227,8 +225,8 @@ export default {
       setTimeout(this.updateStaticHi, 145000)
 
       setTimeout(this.updateStaticHi, 260000)
-      setTimeout(this.insertStaticHi600, 260000)
-      setTimeout(this.insertStaticHi600, 260000)
+      setTimeout(this.insertStaticHi450, 260000)
+      setTimeout(this.insertStaticHi450, 260000)
       setTimeout(this.readStaticHi, 260000)
     },
 
@@ -1226,8 +1224,6 @@ export default {
     triggerGraphVisibilityStep1 () {
       console.log('triggerGraphVisibilityStep1 called')
       let result1 = this.$refs.GraphRef.changeShowGraphs()
-      this.graphsShown = true
-
       return new Promise(function (resolve, reject) {
         setTimeout(() => resolve(result1), 1000)
       })
